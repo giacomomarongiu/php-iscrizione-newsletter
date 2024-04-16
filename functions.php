@@ -8,7 +8,6 @@
  */
 function isMailEmpty($mail)
 {
-
     //Se mail è != null
     if (isset($mail)) {
 
@@ -31,9 +30,9 @@ function alertMessage($mail)
     // Verifico che abbia i requisiti indispensabili di una mail @ e .
     if (str_contains($mail, '@') && str_contains($mail, '.')) {
         //Se ok
-        return "La tua mail è stata accettata";
+        return ["La tua mail è stata accettata", "alert-success"];
     } else {
         //Non va
-        return "Qualcosa non va";
+        return ["Qualcosa non va","alert-danger"];
     }
 }

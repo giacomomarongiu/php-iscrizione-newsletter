@@ -52,13 +52,12 @@ $message = isMailEmpty($email);
                 <input class="form-control" type="text" placeholder="example@boolean.com" name="email">
             </div>
             <!-- Button submit -->
-
+            <button type="submit" class="btn btn-primary mt-1" id="liveAlertBtn">Send</button>
             <div id="liveAlertPlaceholder">
-                <div class="mt-1 alert alert-primary text-center">
-                    <?php echo $message ?>
+                <div class="mt-1 alert text-center <?php echo $message[1] ?>">
+                    <?php echo $message[0] ?>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary mt-1" id="liveAlertBtn">Show live alert</button>
         </form>
 
     </div>
