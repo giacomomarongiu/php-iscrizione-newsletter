@@ -1,7 +1,7 @@
 # Descrizione
 Ricalcate quanto visto in classe stamattina nel live.
 
-1) Milestone 1: scriviamo tutto (logica e layout) in un unico file index.php
+1) Milestone 1: scriviamo tutto (logica e layout) in un unico file index.php OK
 
 2) Milestone 2:
 - spostiamo la logica in un file functions.php che includeremo poi nella pagina principale

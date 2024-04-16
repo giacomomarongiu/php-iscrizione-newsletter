@@ -2,28 +2,36 @@
 #$prova = "Questa è una prova";
 
 //Vedo che prende Get
-var_dump($_GET);
-var_dump(isset($_GET['mail']));
+#var_dump($_GET);
+#var_dump(isset($_GET['email']));
 
 //Per comodità assegno alla variabile mail quello che prendo in input
-$mail = $_GET['mail'];
+$email = $_GET['email'];
 
 //Se mail è ok != null
-if (isset($mail)) {
+if (isset($email)) {
 
     // Verifico se prende il valore
-    var_dump($mail);
+    #var_dump($email);
 
+
+    $message = mailChecker($email);
+
+}
+/**
+ * Prende in input una stringa e ti dice se la stringa inserita ha i requisiti minimi di una mail o meno
+ * @param string
+ */
+function mailChecker($mail)
+{
     // Verifico che abbia i requisiti indispensabili di una mail @ e .
     if (str_contains($mail, '@') && str_contains($mail, '.')) {
         //Se ok
-        $message = "Tutto ok";
+        return "La tua mail è stata accettata";
     } else {
         //Non va
-        $message = "Qualcosa non va";
+        return "Qualcosa non va";
     }
-
-
 }
 
 ?>
@@ -54,20 +62,20 @@ if (isset($mail)) {
         </nav>
     </header>
 
-    
+
     <div class="container">
         <!-- Form -->
         <form action="" method="get">
 
             <div class="m-auto">
-                <label class="form-label" for="mail">Inserisci una mail</label>
+                <label class="form-label" for="email">Inserisci una mail</label>
                 <!--name="badword(variabile)"-->
-                <input class="form-control" type="text" placeholder="example@boolean.com" name="mail">
+                <input class="form-control" type="text" placeholder="example@boolean.com" name="email">
             </div>
             <!-- Button submit -->
             <button type="submit" class="btn btn-primary mt-1">Invia</button>
         </form>
-        <div class="alert bg-primary text-center">
+        <div class="mt-1 alert bg-primary text-center">
             <?php echo $message ?>
         </div>
     </div>
