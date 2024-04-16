@@ -1,4 +1,7 @@
 <?php
+//var_dump(__DIR__);
+require_once __DIR__ . "/functions.php";
+
 #$prova = "Questa è una prova";
 
 //Vedo che prende Get
@@ -8,31 +11,7 @@
 //Per comodità assegno alla variabile mail quello che prendo in input
 $email = $_GET['email'];
 
-//Se mail è ok != null
-if (isset($email)) {
-
-    // Verifico se prende il valore
-    #var_dump($email);
-
-
-    $message = mailChecker($email);
-
-}
-/**
- * Prende in input una stringa e ti dice se la stringa inserita ha i requisiti minimi di una mail o meno
- * @param string
- */
-function mailChecker($mail)
-{
-    // Verifico che abbia i requisiti indispensabili di una mail @ e .
-    if (str_contains($mail, '@') && str_contains($mail, '.')) {
-        //Se ok
-        return "La tua mail è stata accettata";
-    } else {
-        //Non va
-        return "Qualcosa non va";
-    }
-}
+$message = isMailEmpty($email);
 
 ?>
 
@@ -56,7 +35,7 @@ function mailChecker($mail)
         <nav class="navbar bg-primary">
             <div class="container-fluid justify-content-center">
                 <a class="navbar-brand" href="#">
-                    Newsletter <i class="fa-solid fa-poop"></i>
+                    Newsletter <i class="fa-solid fa-envelope"></i>
                 </a>
             </div>
         </nav>
@@ -68,16 +47,20 @@ function mailChecker($mail)
         <form action="" method="get">
 
             <div class="m-auto">
-                <label class="form-label" for="email">Inserisci una mail</label>
+                <label class="form-label" for="email">Inserisci una mail:</label>
                 <!--name="badword(variabile)"-->
                 <input class="form-control" type="text" placeholder="example@boolean.com" name="email">
             </div>
             <!-- Button submit -->
-            <button type="submit" class="btn btn-primary mt-1">Invia</button>
+
+            <div id="liveAlertPlaceholder">
+                <div class="mt-1 alert alert-primary text-center">
+                    <?php echo $message ?>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-1" id="liveAlertBtn">Show live alert</button>
         </form>
-        <div class="mt-1 alert bg-primary text-center">
-            <?php echo $message ?>
-        </div>
+
     </div>
 
     <!--Bootstrap-->
