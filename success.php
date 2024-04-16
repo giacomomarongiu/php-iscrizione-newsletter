@@ -1,20 +1,11 @@
 <?php
-
-//var_dump(__DIR__);
-#require_once __DIR__ . "/functions.php";
-
-#$prova = "Questa è una prova" ;
-
-//Vedo che prende Get
-#var_dump($_GET);
-#var_dump(isset($_GET['email'])) 
 session_start();
-
 #var_dump($_SESSION);
 $message = ($_SESSION['message']);
-#var_dump($message);
-
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +27,7 @@ $message = ($_SESSION['message']);
         <nav class="navbar bg-primary">
             <div class="container-fluid justify-content-center">
                 <a class="navbar-brand" href="#">
-                    Newsletter <i class="fa-solid fa-envelope"></i>
+                    Good Job! - Newsletter <i class="fa-solid fa-envelope"></i>
                 </a>
             </div>
         </nav>
@@ -45,21 +36,13 @@ $message = ($_SESSION['message']);
 
     <div class="container">
         <!-- Form -->
-        <form action="server.php" method="get">
 
-            <div class="m-auto">
-                <label class="form-label" for="email">Inserisci una mail:</label>
-                <!--name="badword(variabile)"-->
-                <input class="form-control" type="text" placeholder="example@boolean.com" name="email">
+        <div id="liveAlertPlaceholder">
+            <div class="mt-1 alert text-center <?php echo $message["class"] ?>">
+                <?php echo $message["text"] ?>
             </div>
-            <!-- Button submit -->
-            <button type="submit" class="btn btn-primary mt-1" id="liveAlertBtn">Send</button>
-            <div id="liveAlertPlaceholder">
-                <div class="mt-1 alert text-center <?php echo $message["class"] ?>">
-                    <?php echo $message["text"] ?>
-                </div>
-            </div>
-        </form>
+        </div>
+
 
     </div>
 

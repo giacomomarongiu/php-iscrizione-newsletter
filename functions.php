@@ -30,9 +30,17 @@ function alertMessage($mail)
     // Verifico che abbia i requisiti indispensabili di una mail @ e .
     if (str_contains($mail, '@') && str_contains($mail, '.')) {
         //Se ok
-        return ["La tua mail è stata accettata", "alert-success"];
+        return [
+            "text" => "La tua mail è stata accettata",
+            "class" => "alert-success",
+            "value" => true
+        ];
     } else {
         //Non va
-        return ["Qualcosa non va","alert-danger"];
+        return [
+            "text" => "Qualcosa non va",
+            "class" => "alert-danger",
+            "value" => false
+        ];
     }
 }
