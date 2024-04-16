@@ -1,18 +1,14 @@
 <?php
-
-//var_dump(__DIR__);
-#require_once __DIR__ . "/functions.php";
-
-#$prova = "Questa è una prova" ;
-
-//Vedo che prende Get
-#var_dump($_GET);
-#var_dump(isset($_GET['email'])) 
+#Avvio SESSION
 session_start();
 
+//Vedo che ho dentro
 #var_dump($_SESSION);
+
+#PPrendo i valori che mi servono per la stampa
 $message = ($_SESSION['message']);
-#var_dump($message);
+$email = ($_SESSION['email']);
+
 
 ?>
 
@@ -26,7 +22,7 @@ $message = ($_SESSION['message']);
     <script src="https://kit.fontawesome.com/3a46370e2f.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Php - Badwords</title>
+    <title>Newsletter</title>
 </head>
 
 <body>
@@ -35,7 +31,7 @@ $message = ($_SESSION['message']);
     <header class="mb-3">
         <nav class="navbar bg-primary">
             <div class="container-fluid justify-content-center">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="">
                     Newsletter <i class="fa-solid fa-envelope"></i>
                 </a>
             </div>
@@ -49,13 +45,17 @@ $message = ($_SESSION['message']);
 
             <div class="m-auto">
                 <label class="form-label" for="email">Inserisci una mail:</label>
-                <!--name="badword(variabile)"-->
-                <input class="form-control" type="text" placeholder="example@boolean.com" name="email">
+                <!--Assegno all'input il valore di $email in modo da recuperare il valore nel caso fosse no valido-->
+                <input class="form-control" type="text" placeholder="example@boolean.com" name="email"
+                    value="<?php echo $email ?>">
             </div>
+
             <!-- Button submit -->
             <button type="submit" class="btn btn-primary mt-1" id="liveAlertBtn">Send</button>
             <div id="liveAlertPlaceholder">
+                <!--Inserisco "dinamicamente" la classe fornita dall'array dinamico-->
                 <div class="mt-1 alert text-center <?php echo $message["class"] ?>">
+                    <!--Inserisco "dinamicamente" la stringa fornita dall'array dinamico-->
                     <?php echo $message["text"] ?>
                 </div>
             </div>

@@ -17,7 +17,7 @@ $message = ($_SESSION['message']);
     <script src="https://kit.fontawesome.com/3a46370e2f.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Php - Badwords</title>
+    <title>Good Job! - Newsletter</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@ $message = ($_SESSION['message']);
         <nav class="navbar bg-primary">
             <div class="container-fluid justify-content-center">
                 <a class="navbar-brand" href="#">
-                    Good Job! - Newsletter <i class="fa-solid fa-envelope"></i>
+                    Newsletter <i class="fa-solid fa-envelope"></i>
                 </a>
             </div>
         </nav>
@@ -35,8 +35,8 @@ $message = ($_SESSION['message']);
 
 
     <div class="container">
-        <!-- Form -->
 
+    <!--Alert-->
         <div id="liveAlertPlaceholder">
             <div class="mt-1 alert text-center <?php echo $message["class"] ?>">
                 <?php echo $message["text"] ?>

@@ -1,8 +1,5 @@
 <?php
 
-#var_dump(__DIR__);
-
-
 /**
  * Questa funzione permette di vedere se la mail inviata è diversa da NULL
  */
@@ -18,11 +15,8 @@ function isMailEmpty($mail)
 }
 ;
 
-
-
-
 /**
- * Prende in input una stringa e ti dice se la stringa inserita ha i requisiti minimi di una mail o meno
+ * Prende in input una stringa e restituisce un array associativo con: un messaggio, una classe bootstrap e un valore booleano.
  * @param string
  */
 function alertMessage($mail)
@@ -38,7 +32,7 @@ function alertMessage($mail)
     } else {
         //Non va
         return [
-            "text" => "Qualcosa non va",
+            "text" => "Qualcosa non va, riprova includendo @ e .",
             "class" => "alert-danger",
             "value" => false
         ];
