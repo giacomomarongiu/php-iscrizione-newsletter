@@ -15,6 +15,7 @@ function isMailEmpty($mail)
 }
 ;
 
+
 /**
  * Prende in input una stringa e restituisce un array associativo con: un messaggio, una classe bootstrap e un valore booleano.
  * @param string

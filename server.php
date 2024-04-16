@@ -20,10 +20,9 @@ $_SESSION['message'] = $message;
 
 
 #Gestiso il reindirizzamento delle pagine
-
 //Se il valore che mi viene reso è true porta alla pagina success
 if ($message['value']) {
-    header('Location: /php/php-iscrizione-newsletter/results/success.php');
+    header('Location: /php/php-iscrizione-newsletter/success.php');
 
 //Se no resta nell'index
 } else {
